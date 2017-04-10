@@ -1,0 +1,18 @@
+/* plugins */
+@import 'plugins/plugin1.css';
+@import 'plugins/plugin2.css';
+
+/* partials */
+@import 'partials/reset.css';
+@import 'partials/variables.css';
+	
+
+body { background: #000; color: #fff; }
+
+h1 { border: 1px solid #eee; padding: 20px; margin: 5px; color: var(--color-text); }
+p { border: 1px solid #eee; padding: 20px; margin: 5px; }
+
+.cssnext-link { color: color(coral blackness(80%)); }
+.cssnext-link:hover { color: color(orange blackness(80%)); }
+.banner { min-height: 100px; display: flex; background: url('var(--path)/captcha.png') center center no-repeat; }
+.banner img { transform: translateX(50%); transform: translate3d(50%, 0, 0); }
