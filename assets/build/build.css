@@ -12,6 +12,6 @@ h1 { border: 1px solid #eee; padding: 20px; margin: 5px; color: coral; }
 p { border: 1px solid #eee; padding: 20px; margin: 5px; }
 .cssnext-link { color: rgb(71, 71, 71); }
 .cssnext-link:hover { color: rgb(51, 33, 0); }
-.banner { min-height: 100px; display: -webkit-box; display: -ms-flexbox; display: flex; background: url('../images/captcha.png') center center no-repeat; }
-.banner img { -webkit-transform: translateX(50%); transform: translateX(50%); -webkit-transform: translate3d(50%, 0, 0); transform: translate3d(50%, 0, 0); }
+.banner { min-height: 100px; background: url('../images/captcha.png') center center no-repeat; text-align: center; }
+.banner img { }
 /*# sourceMappingURL=build.css.map */
