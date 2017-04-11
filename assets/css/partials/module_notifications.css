@@ -1,0 +1,17 @@
+.toast-success { background-color: color(var(--success) alpha(90%)); }
+.toast-error { background-color: color(var(--error) alpha(90%)); }
+.toast-info { background-color: color(var(--info) alpha(90%)); }
+.toast-warning { background-color: color(var(--warning) alpha(90%)); }
+
+#toast-container > div { box-shadow: none; opacity: 1; }
+#toast-container > div:hover { box-shadow: none; opacity: .9; }
+.toast-progress { opacity: .6; height: 3px; background-color: #fff; }
+
+.msg { position: relative; border: 1px solid var(--color-neutral-dk); padding: 20px; margin: 10px 0; background: var(--color-quinary); font-size: 14px; line-height: 1.2; color: var(--color-text); font-weight: normal; }
+.msgSuccess { border-color: color(var(--success) alpha(90%)); padding-left: 30px; }
+.msgSuccess:after { content: '✓'; position: absolute; top: 50%; left: 10px; width: 20px; height: 20px; font-size: 20px; line-height: 20px; color: color(var(--success) alpha(90%)); font-weight: bold; transform: translateY(-50%); }
+.msgError { border-color: color(var(--error) alpha(90%)); padding-left: 30px; }
+.msgError:after { content: 'x'; position: absolute; top: 50%; left: 12px; margin-top: -2px; font-size: 20px; line-height: 20px; color: color(var(--error) alpha(90%)); font-weight: bold; transform: translateY(-50%); }
+.msgInfo { border-color: color(var(--info) alpha(90%)); border-color: color(var(--info) alpha(90%)); }
+.msgWarning { border-color: color(var(--warning) alpha(90%)); padding-left: 30px; }
+.msgWarning:after { content: '!'; position: absolute; top: 50%; left: 13px; font-size: 20px; line-height: 20px; color: color(var(--warning) alpha(90%)); font-weight: bold; transform: translateY(-50%); }

@@ -1,0 +1,3 @@
+@media (--breakpoint-desktop-lg) {
+	body { background: coral; }
+}

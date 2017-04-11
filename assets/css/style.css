@@ -1,18 +1,51 @@
-/* plugins */
-@import 'plugins/plugin1.css';
-@import 'plugins/plugin2.css';
+/* ------------------------------------------------------------ *\
+    # plugins
+\* ------------------------------------------------------------ */
 
-/* partials */
-@import 'partials/reset.css';
-@import 'partials/variables.css';
+@import "plugins/slick.css";
+@import "plugins/balloon.css";
+@import "plugins/colorbox.css";
+@import "plugins/toastr.css";
+
+/* ------------------------------------------------------------ *\
+    # generic
+\* ------------------------------------------------------------ */
+
+/*@import 'partials/generic_fonts.css';*/
+@import 'partials/generic_reset.css';
+@import 'partials/generic_variables.css';
+@import 'partials/generic_helpers.css';
+@import 'partials/generic_containers.css';
+@import 'partials/generic_general.css';
+@import 'partials/generic_grid.css';
+@import 'partials/generic_form-elements.css';
+/*@import 'partials/generic_animations.css';*/
 	
+/* ------------------------------------------------------------ *\
+    # regions
+\* ------------------------------------------------------------ */
+@import 'partials/region_header.css';
+@import 'partials/region_footer.css';
+@import 'partials/region_main.css';
 
-body { background: #000; color: #fff; }
+/* ------------------------------------------------------------ *\
+    # modules
+\* ------------------------------------------------------------ */
 
-h1 { border: 1px solid #eee; padding: 20px; margin: 5px; color: var(--color-text); }
-p { border: 1px solid #eee; padding: 20px; margin: 5px; }
+@import 'partials/module_icons.css';
+@import 'partials/module_btns.css';
+@import 'partials/module_nav.css';
+@import 'partials/module_article.css';
+@import 'partials/module_breadcrumbs.css';
+@import 'partials/module_paging.css';
+@import 'partials/module_socials.css';
+@import 'partials/module_forms.css';
+@import 'partials/module_notifications.css';
+@import 'partials/module_sliders.css';
+@import 'partials/module_boxes.css';
+@import 'partials/module_accents.css';
+/*@import 'partials/module_blocks.css';*/
+@import 'partials/module_widgets.css';
 
-.cssnext-link { color: color(coral blackness(80%)); }
-.cssnext-link:hover { color: color(orange blackness(80%)); }
-.banner { min-height: 100px; background: url('var(--path)/captcha.png') center center no-repeat; text-align: center; }
-.banner img { }
+/* responsive */
+@import 'partials/responsive.css';

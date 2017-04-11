@@ -1,0 +1,63 @@
+.field input,
+.field select,
+.field textarea { appearance: none; box-sizing: border-box; }
+
+.field select::-ms-expand { display: none; }
+
+.field input,
+.field select,
+.field textarea { display: block; max-width: 100%; width: 100%; height: 44px; border: 1px solid var(--color-quarternery); padding: 11px 20px; background: #fff; font-size: 13px; line-height: 20px; color: var(--color-text); }
+.field textarea { height: 134px; }
+.field select { padding: 0 30px 0 20px; line-height: 40px; text-transform: uppercase; user-select: none; }
+.fieldSelect { position: relative; display: block; max-width: 100%; }
+.fieldSelect:before,
+.fieldSelect:after { content: ''; position: absolute; top: 50%; z-index: 2; display: block; width: 12px; height: 2px; background: var(--color-neutral-lt); }
+.fieldSelect:before { right: 15px; transform: rotate(-45deg); }
+.fieldSelect:after { right: 23px; transform: rotate(45deg); }
+
+.field textarea::placeholder,
+.field input::placeholder { opacity: 1; color: red; }
+
+.field select:focus,
+.field input:focus,
+.field textarea:focus { border-color: var(--color-primary); }
+
+.field select[disabled],
+.field textarea[disabled],
+.field input[disabled] { border-color: var(--color-neutral-lt); background: #eee; }
+
+.choose { line-height: 1; }
+.choose:after { content: ' '; display: block; clear: both; }
+
+.radio,
+.check { padding-bottom: 2px; }
+.radio input,
+.check input { float: left; width: 20px; height: 20px; margin: 0 10px 0 0; opacity: 0; visibility: hidden; }
+.radio label,
+.check label { font-size: 14px; line-height: 20px; color: var(--color-text); user-select: none; }
+.radio label:before,
+.check label:before { content: ''; position: absolute; display: block; width: 20px; height: 20px; background: var(--color-quinary); box-shadow: inset 0 1px 5px rgba(0, 0, 0, .1); transition: all 0.3s; }
+.radio label:after,
+.check label:after { position: absolute; font-size: 18px; line-height: 1; color: #fff; transition: all 0.3s; opacity: 0; visibility: hidden; }
+.radio input:checked + label:before,
+.check input:checked + label:before { background: var(--color-primary); }
+.radio input:checked + label:after,
+.check input:checked + label:after { opacity: 1; visibility: visible; }
+
+.check label:after { content: '✓'; top: 2px; left: 4px; }
+
+.radio label:before { border-radius: 50%; }
+.radio label:after { content: ''; top: 4px; left: 4px; width: 12px; height: 12px; border-radius: 50%; background: #fff; }
+
+.choose,
+.field { position: relative; }
+.field.error textarea,
+.field.error select,
+.field.error input { position: relative; border-bottom-color: var(--error); color: var(--error); }
+.field.error:after { content: '!'; position: absolute; top: 50%; left: 7px; font-size: 20px; color: var(--error); font-weight: bold; transform: translateY(-50%); }
+.choose.error label { color: var(--error); }
+.field.success textarea,
+.field.success select,
+.field.success input { position: relative; border-bottom-color: var(--success); color: var(--success); }
+.field.success:after { content: '✓'; position: absolute; top: 50%; left: 5px; width: 20px; height: 20px; color: var(--success); transform: translateY(-50%); }
+.choose.success label { color: var(--success); }

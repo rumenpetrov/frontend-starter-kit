@@ -51,7 +51,7 @@ gulp.task('build:js', function() {
 
 	.pipe(concat('build.js'))
 	// uncomment to compress scripts
-	.pipe(uglify({compress: {hoist_funs: false, hoist_vars: false}}))
+	// .pipe(uglify({compress: {hoist_funs: false, hoist_vars: false}}))
 	.pipe(gulp.dest(pathBuild));
 });
 
@@ -71,7 +71,7 @@ gulp.task('validate:js', function(done) {
 gulp.task('compress:images', function() {
 	return gulp.src('images/**/*')
 	
-	.pipe(imagemin({progressive: true, optimizationLevel: 7, verbose: true}))
+	.pipe(imagemin({progressive: true, optimizationLevel: 7, verbose: false}))
 	.pipe(gulp.dest('images/'))
 });
 

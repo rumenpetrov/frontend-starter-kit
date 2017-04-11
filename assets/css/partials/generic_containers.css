@@ -1,0 +1,10 @@
+.container {
+	position: relative;
+	min-height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+.wrapper {
+	width: var(--wrapper-width);
+	margin: 0 auto;
+}

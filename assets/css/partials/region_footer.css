@@ -1,0 +1,6 @@
+.footer { position: relative; z-index: 20; overflow: hidden; width: 100%; }
+.footer .copy { float: left; }
+.footer .stenik { float: right; }
+.footer .stenik	.iconSVG { display: inline-block; vertical-align: -0.15em; width: 24px; height: 24px; margin-right: 4px; }
+.footer .stenik	p { display: inline-block; vertical-align: top; line-height: 24px; }
+.footer .stenik	p a { display: inline-block; vertical-align: top; margin-left: 3px; text-decoration: none; }
