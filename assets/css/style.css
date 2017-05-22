@@ -47,5 +47,8 @@
 /*@import 'partials/module_blocks.css';*/
 @import 'partials/module_widgets.css';
 
-/* responsive */
+/* ------------------------------------------------------------ *\
+    # responsive
+\* ------------------------------------------------------------ */
+
 @import 'partials/responsive.css';

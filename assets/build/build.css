@@ -1036,8 +1036,6 @@ nav ul { list-style: none; font-size: 0; line-height: 0; }
 
 .accents { position: relative; z-index: 10; overflow: hidden; width: 100%; }
 
-/*@import 'partials/module_blocks.css';*/
-
 .widgetGallery { max-width: none; margin: 0 -20px; font-size: 0; line-height: 0; }
 
 .widgetGallery .galleryImage { position: relative; overflow: hidden; display: inline-block; vertical-align: top; width: 285px; margin: 20px; -webkit-transition: all 0.3s; transition: all 0.3s; }
@@ -1046,7 +1044,9 @@ nav ul { list-style: none; font-size: 0; line-height: 0; }
 
 .widgetGallery .galleryImage:hover img { -webkit-transform: scale(0.95); transform: scale(0.95); -webkit-transform: scale3e(0.95, 0.95, 1); transform: scale3e(0.95, 0.95, 1); }
 
-/* responsive */
+/* ------------------------------------------------------------ *\
+    # responsive
+\* ------------------------------------------------------------ */
 
 @media (max-width: 1300px) {
 	body { background: coral; }
