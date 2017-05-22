@@ -4,7 +4,8 @@
   "description": "Frontend workflow with gulp and postcss.",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "imagemin-optipng": "^5.2.1"
   },
   "devDependencies": {
     "gulp-concat": "^2.6.1",

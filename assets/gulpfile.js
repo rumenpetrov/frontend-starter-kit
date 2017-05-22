@@ -14,10 +14,12 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 
-// other
+// images
+var imagemin = require('gulp-imagemin');
+
+// utilities
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
-var imagemin = require('gulp-imagemin');
 
 // paths
 var pathBuild = 'build/';
@@ -37,7 +39,7 @@ gulp.task('build:css', function(done) {
 	.pipe(postcss(plugins))
 	.on('error', done)
 	.pipe(rename('build.css'))
-	// uncomment to compress styles
+	// uncomment next row to compress styles
 	// .pipe(cssnano())
 	.pipe(sourcemaps.write('.'))
 	.pipe(gulp.dest(pathBuild));
@@ -50,7 +52,7 @@ gulp.task('build:js', function() {
 	return gulp.src(['js/plugins/*.js', 'js/main.js'])
 
 	.pipe(concat('build.js'))
-	// uncomment to compress scripts
+	// uncomment next row to compress scripts
 	// .pipe(uglify({compress: {hoist_funs: false, hoist_vars: false}}))
 	.pipe(gulp.dest(pathBuild));
 });
@@ -69,9 +71,13 @@ gulp.task('validate:js', function(done) {
     # Task: Compress images
 \* ------------------------------------------------------------ */
 gulp.task('compress:images', function() {
-	return gulp.src('images/**/*')
+	return gulp.src('images/**/*.{png,jpg,jpeg}')
 	
-	.pipe(imagemin({progressive: true, optimizationLevel: 7, verbose: false}))
+	.pipe(imagemin({
+		optimizationLevel: 7,
+		progressive: true,
+		verbose: true
+	}))
 	.pipe(gulp.dest('images/'))
 });
 
