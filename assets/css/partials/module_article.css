@@ -17,7 +17,7 @@
 .article { font-size: var(--font-size-primary); line-height: 25px; color: var(--color-text); }
 .article * { max-width: 100%; }
 .article *:last-child { padding-bottom: 0; }
-.article hr { display: block; border: none; width: 100%; height: 1px; margin: 10px 0; background: #000;	}
+.article hr { display: block; border: none; width: 100%; height: 1px; margin: 10px 0; background: var(--color-text); }
 .article a { position: relative; color: var(--color-link); text-decoration: underline; transition: all 0.3s; }
 .article a:hover { text-decoration: none; }
 

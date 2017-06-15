@@ -27,7 +27,7 @@ var pathBuild = 'build/';
 /* ------------------------------------------------------------ *\
     # Task: Build styles
 \* ------------------------------------------------------------ */
-gulp.task('build:css', function(done) {
+gulp.task('build:css:dev', function(done) {
 	var plugins = [
 		postcssImport,
 		cssnext
@@ -39,8 +39,23 @@ gulp.task('build:css', function(done) {
 	.pipe(postcss(plugins))
 	.on('error', done)
 	.pipe(rename('build.css'))
-	// uncomment next row to compress styles
-	// .pipe(cssnano())
+	.pipe(sourcemaps.write('.'))
+	.pipe(gulp.dest(pathBuild));
+});
+
+gulp.task('build:css:prod', function(done) {
+	var plugins = [
+		postcssImport,
+		cssnext
+	];
+
+	return gulp.src('css/style.css')
+
+	.pipe(sourcemaps.init())
+	.pipe(postcss(plugins))
+	.on('error', done)
+	.pipe(rename('build.css'))
+	.pipe(cssnano())
 	.pipe(sourcemaps.write('.'))
 	.pipe(gulp.dest(pathBuild));
 });
@@ -48,12 +63,18 @@ gulp.task('build:css', function(done) {
 /* ------------------------------------------------------------ *\
     # Task: Combine and compress scripts
 \* ------------------------------------------------------------ */
-gulp.task('build:js', function() {
+gulp.task('build:js:dev', function() {
 	return gulp.src(['js/plugins/*.js', 'js/main.js'])
 
 	.pipe(concat('build.js'))
-	// uncomment next row to compress scripts
-	// .pipe(uglify({compress: {hoist_funs: false, hoist_vars: false}}))
+	.pipe(gulp.dest(pathBuild));
+});
+
+gulp.task('build:js:prod', function() {
+	return gulp.src(['js/plugins/*.js', 'js/main.js'])
+
+	.pipe(concat('build.js'))
+	.pipe(uglify({compress: {hoist_funs: false, hoist_vars: false}}))
 	.pipe(gulp.dest(pathBuild));
 });
 
@@ -85,11 +106,11 @@ gulp.task('compress:images', function() {
     # Task: Watch files for changes
 \* ------------------------------------------------------------ */
 gulp.task('watch', function() {
-	gulp.watch('css/**/*.css', ['build:css']);
-	gulp.watch('js/**/*.js', ['validate:js', 'build:js']);
+	gulp.watch('css/**/*.css', ['build:css:dev']);
+	gulp.watch('js/**/*.js', ['validate:js', 'build:js:dev']);
 });
 
 /* ------------------------------------------------------------ *\
     # Task: Default
 \* ------------------------------------------------------------ */
-gulp.task('default', [ 'build:css', 'compress:images', 'validate:js', 'build:js' ]);
+gulp.task('default', [ 'build:css:prod', 'compress:images', 'validate:js', 'build:js:prod' ]);
