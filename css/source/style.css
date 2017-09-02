@@ -1,0 +1,40 @@
+/* ===============================================================
+	#
+	# I. Plugins
+	#
+=============================================================== */
+
+@import "plugins/slick.css";
+@import "plugins/colorbox.css";
+@import "plugins/toastr.css";
+@import "plugins/perfect-scrollbar.css";
+@import "plugins/materialize.parallax.css";
+@import "plugins/nouislider.css";
+@import "plugins/jquery.bootstrap-touchspin.css";
+
+
+/* ===============================================================
+	#
+	# II. Generic
+	#
+=============================================================== */
+
+@import 'partials/_settings.css';
+@import 'partials/_generic.css';
+
+
+/* ===============================================================
+	#
+	# III. Regions
+	#
+=============================================================== */
+
+@import 'partials/_regions.css';
+
+/* ===============================================================
+	#
+	# IV. Modules
+	#
+=============================================================== */
+
+@import 'partials/_modules.css';
