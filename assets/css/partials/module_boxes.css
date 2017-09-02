@@ -1,7 +1,0 @@
-.no-flexbox .boxes { font-size: 0; line-height: 0; }
-.no-flexbox .box { display: inline-block; vertical-align: top; }
-.flexbox .boxes { display: flex; flex-wrap: wrap; justify-content: flex-start; align-content: flex-start; }
-
-.box { position: relative; display: block;  box-sizing: border-box; transition: all 0.3s; }
-.box:hover { text-decoration: none; }
-.box img { width: 100%; height: auto; }

@@ -1,4 +1,0 @@
-.widgetGallery { max-width: none; margin: 0 -20px; font-size: 0; line-height: 0; }
-.widgetGallery .galleryImage { position: relative; overflow: hidden; display: inline-block; vertical-align: top; width: 285px; margin: 20px; transition: all 0.3s; }
-.widgetGallery .galleryImage img { width: 100%; height: auto; }
-.widgetGallery .galleryImage:hover img { transform: scale(0.95); transform: scale3e(0.95, 0.95, 1); }
