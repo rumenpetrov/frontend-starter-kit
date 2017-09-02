@@ -1,34 +1,32 @@
 {
-  "name": "gulp-postcss-workflow",
-  "version": "1.1.0",
-  "description": "Frontend workflow with gulp and postcss.",
-  "main": "gulpfile.js",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "imagemin-optipng": "^5.2.1"
-  },
-  "devDependencies": {
-    "del": "^3.0.0",
-    "gulp-cli": "^1.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^3.2.0",
-    "gulp-jshint": "^2.0.4",
-    "gulp-postcss": "^6.3.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sequence": "^0.4.6",
-    "gulp-sourcemaps": "^2.5.1",
-    "gulp-ssi": "^0.1.3",
-    "gulp-uglify": "^2.0.1",
-    "jshint": "^2.9.4",
-    "jshint-stylish": "^2.2.1",
-    "panini": "^1.5.1",
-    "postcss-cssnext": "^2.9.0",
-    "postcss-import": "^9.1.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Rumen Petrov",
-  "license": "ISC"
+	"name": "frontend-workflow-automation",
+	"version": "2.0.0",
+	"description": "Frontend workflow with gulp, zurb panini and postcss.",
+	"main": "gulpfile.js",
+	"dependencies": {
+		"gulp": "^3.9.1"
+	},
+	"devDependencies": {
+		"del": "^3.0.0",
+		"gulp-cli": "^1.4.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-cssnano": "^2.1.2",
+		"gulp-jshint": "^2.0.4",
+		"gulp-postcss": "^6.3.0",
+		"gulp-rename": "^1.2.2",
+		"gulp-sequence": "^0.4.6",
+		"gulp-sourcemaps": "^2.5.1",
+		"gulp-ssi": "^0.1.3",
+		"gulp-uglify": "^2.0.1",
+		"jshint": "^2.9.4",
+		"jshint-stylish": "^2.2.1",
+		"panini": "^1.5.1",
+		"postcss-cssnext": "^2.9.0",
+		"postcss-import": "^9.1.0"
+	},
+	"scripts": {
+		"start": "gulp"
+	},
+	"author": "Rumen Petrov",
+	"license": "ISC"
 }

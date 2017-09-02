@@ -1,2 +1,2 @@
-# gulp-postcss-workflow
-My development setup with gulp and postcss.
+# frontend-workflow-automation
+Frontend workflow with gulp, zurb panini and postcss.

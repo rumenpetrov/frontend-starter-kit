@@ -18,9 +18,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 
-// images
-var imagemin = require('gulp-imagemin');
-
 // utilities
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
