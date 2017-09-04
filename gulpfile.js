@@ -4,7 +4,6 @@
 var gulp = require('gulp');
 
 // templates
-var ssi = require("gulp-ssi");
 var panini = require('panini');
 
 // styles
@@ -26,17 +25,17 @@ var gulpSequence = require('gulp-sequence')
 
 // paths
 var paths = {
-	html: {
-		src: 'html/source',
-		dist: 'html/build'
+	templates: {
+		src: 'templates/source',
+		dist: 'templates/build'
 	},
-	css: {
-		src: 'css/source',
-		dist: 'css/build'
+	styles: {
+		src: 'styles/source',
+		dist: 'styles/build'
 	},
-	js: {
-		src: 'js/source',
-		dist: 'js/build'
+	scripts: {
+		src: 'scripts/source',
+		dist: 'scripts/build'
 	}
 };
 
@@ -48,18 +47,18 @@ gulp.task('build:html', function(callback) {
 });
 
 gulp.task('clean:html', function() {
-	return del(paths.html.src + '/*.html');
+	return del(paths.pages.src + '/*.html');
 });
 
 gulp.task('pages', function() {
-	return gulp.src(paths.html.src + '/pages/**/*.html')
+	return gulp.src(paths.pages.src + '/pages/**/*.html')
 	
 	.pipe(panini({
-		root: paths.html.src + '/pages/',
-		layouts: paths.html.src + '/layouts/',
-		partials: paths.html.src + '/partials/'
+		root: paths.pages.src + '/pages/',
+		layouts: paths.pages.src + '/layouts/',
+		partials: paths.pages.src + '/partials/'
 	}))
-	.pipe(gulp.dest(paths.html.dist));
+	.pipe(gulp.dest(paths.pages.dist));
 });
 
 gulp.task('pages:refresh', function() {
@@ -75,14 +74,14 @@ gulp.task('build:css:dev', function(done) {
 		cssnext
 	];
 
-	return gulp.src(paths.css.src + '/style.css')
+	return gulp.src(paths.styles.src + '/style.css')
 
 	.pipe(sourcemaps.init())
 	.pipe(postcss(plugins))
 	.on('error', done)
 	.pipe(rename('build.css'))
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest(paths.css.dist));
+	.pipe(gulp.dest(paths.styles.dist));
 });
 
 gulp.task('build:css:prod', function(done) {
@@ -91,7 +90,7 @@ gulp.task('build:css:prod', function(done) {
 		cssnext
 	];
 
-	return gulp.src(paths.css.src + '/style.css')
+	return gulp.src(paths.styles.src + '/style.css')
 
 	.pipe(sourcemaps.init())
 	.pipe(postcss(plugins))
@@ -99,32 +98,32 @@ gulp.task('build:css:prod', function(done) {
 	.pipe(rename('build.css'))
 	.pipe(cssnano())
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest(paths.css.dist));
+	.pipe(gulp.dest(paths.styles.dist));
 });
 
 /* ------------------------------------------------------------ *\
     # Task: Combine and compress scripts
 \* ------------------------------------------------------------ */
 gulp.task('build:js:dev', function() {
-	return gulp.src([paths.js.src + '/plugins/*.js', paths.js.src + '/main.js'])
+	return gulp.src([paths.scripts.src + '/plugins/*.js', paths.scripts.src + '/main.js'])
 
 	.pipe(concat('build.js'))
-	.pipe(gulp.dest(paths.js.dist));
+	.pipe(gulp.dest(paths.scripts.dist));
 });
 
 gulp.task('build:js:prod', function() {
-	return gulp.src([paths.js.src + '/plugins/*.js', paths.js.src + '/main.js'])
+	return gulp.src([paths.scripts.src + '/plugins/*.js', paths.scripts.src + '/main.js'])
 
 	.pipe(concat('build.js'))
 	.pipe(uglify({compress: {hoist_funs: false, hoist_vars: false}}))
-	.pipe(gulp.dest(paths.js.dist));
+	.pipe(gulp.dest(paths.scripts.dist));
 });
 
 /* ------------------------------------------------------------ *\
     # Task: Check main js for errors and optimizations
 \* ------------------------------------------------------------ */
 gulp.task('validate:js', function() {
-	return gulp.src(paths.js.src + '/main.js')
+	return gulp.src(paths.scripts.src + '/main.js')
 
 	.pipe(jshint())
 	.pipe(jshint.reporter('jshint-stylish', { beep: true }));
@@ -136,7 +135,7 @@ gulp.task('validate:js', function() {
 gulp.task('watch', function() {
 	gulp.watch('html/source/**/*', ['build:html']);
 	gulp.watch('css/source/**/*.css', ['build:css:dev']);
-	gulp.watch(paths.js.src + '/**/*.js', ['validate:js', 'build:js:dev']);
+	gulp.watch(paths.scripts.src + '/**/*.js', ['validate:js', 'build:js:dev']);
 });
 
 /* ------------------------------------------------------------ *\
