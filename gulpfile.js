@@ -47,7 +47,7 @@ gulp.task('build:html', function(callback) {
 });
 
 gulp.task('clean:html', function() {
-	return del(paths.templates.src + '/*.html');
+	return del(paths.templates.dist + '/*.html');
 });
 
 gulp.task('pages', function() {
@@ -133,8 +133,8 @@ gulp.task('validate:js', function() {
     # Task: Watch files for changes
 \* ------------------------------------------------------------ */
 gulp.task('watch', function() {
-	gulp.watch('html/source/**/*', ['build:html']);
-	gulp.watch('css/source/**/*.css', ['build:css:dev']);
+	gulp.watch(paths.templates.src + '/**/*', ['build:html']);
+	gulp.watch(paths.styles.src + '/**/*.css', ['build:css:dev']);
 	gulp.watch(paths.scripts.src + '/**/*.js', ['validate:js', 'build:js:dev']);
 });
 
