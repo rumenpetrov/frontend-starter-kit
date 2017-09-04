@@ -59,107 +59,107 @@ textarea { font-family: var(--font-primary); transition: all 0.3s; }
 \* ------------------------------------------------------------ */
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-light-webfont.eot');
-	src: url('../fonts/hkgrotesk-light-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-light-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-light-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-light-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-light-webfont.svg#hk_grotesklight') format('svg');
+	src: url('../../fonts/hkgrotesk-light-webfont.eot');
+	src: url('../../fonts/hkgrotesk-light-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-light-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-light-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-light-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-light-webfont.svg#hk_grotesklight') format('svg');
 	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-lightitalic-webfont.eot');
-	src: url('../fonts/hkgrotesk-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-lightitalic-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-lightitalic-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-lightitalic-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-lightitalic-webfont.svg#hk_grotesklight_italic') format('svg');
+	src: url('../../fonts/hkgrotesk-lightitalic-webfont.eot');
+	src: url('../../fonts/hkgrotesk-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-lightitalic-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-lightitalic-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-lightitalic-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-lightitalic-webfont.svg#hk_grotesklight_italic') format('svg');
 	font-weight: 300;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-regular-webfont.eot');
-	src: url('../fonts/hkgrotesk-regular-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-regular-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-regular-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-regular-webfont.svg#hk_groteskregular') format('svg');
+	src: url('../../fonts/hkgrotesk-regular-webfont.eot');
+	src: url('../../fonts/hkgrotesk-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-regular-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-regular-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-regular-webfont.svg#hk_groteskregular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-italic-webfont.eot');
-	src: url('../fonts/hkgrotesk-italic-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-italic-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-italic-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-italic-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-italic-webfont.svg#hk_groteskitalic') format('svg');
+	src: url('../../fonts/hkgrotesk-italic-webfont.eot');
+	src: url('../../fonts/hkgrotesk-italic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-italic-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-italic-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-italic-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-italic-webfont.svg#hk_groteskitalic') format('svg');
 	font-weight: normal;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-medium-webfont.eot');
-	src: url('../fonts/hkgrotesk-medium-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-medium-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-medium-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-medium-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-medium-webfont.svg#hk_groteskmedium') format('svg');
+	src: url('../../fonts/hkgrotesk-medium-webfont.eot');
+	src: url('../../fonts/hkgrotesk-medium-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-medium-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-medium-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-medium-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-medium-webfont.svg#hk_groteskmedium') format('svg');
 	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-mediumitalic-webfont.eot');
-	src: url('../fonts/hkgrotesk-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-mediumitalic-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-mediumitalic-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-mediumitalic-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-mediumitalic-webfont.svg#hk_groteskmedium_italic') format('svg');
+	src: url('../../fonts/hkgrotesk-mediumitalic-webfont.eot');
+	src: url('../../fonts/hkgrotesk-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-mediumitalic-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-mediumitalic-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-mediumitalic-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-mediumitalic-webfont.svg#hk_groteskmedium_italic') format('svg');
 	font-weight: 500;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-bold-webfont.eot');
-	src: url('../fonts/hkgrotesk-bold-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-bold-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-bold-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-bold-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-bold-webfont.svg#hk_groteskbold') format('svg');
+	src: url('../../fonts/hkgrotesk-bold-webfont.eot');
+	src: url('../../fonts/hkgrotesk-bold-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-bold-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-bold-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-bold-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-bold-webfont.svg#hk_groteskbold') format('svg');
 	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'HK Grotesk';
-	src: url('../fonts/hkgrotesk-bolditalic-webfont.eot');
-	src: url('../fonts/hkgrotesk-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/hkgrotesk-bolditalic-webfont.woff2') format('woff2'),
-		 url('../fonts/hkgrotesk-bolditalic-webfont.woff') format('woff'),
-		 url('../fonts/hkgrotesk-bolditalic-webfont.ttf') format('truetype'),
-		 url('../fonts/hkgrotesk-bolditalic-webfont.svg#hk_groteskbold_italic') format('svg');
+	src: url('../../fonts/hkgrotesk-bolditalic-webfont.eot');
+	src: url('../../fonts/hkgrotesk-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/hkgrotesk-bolditalic-webfont.woff2') format('woff2'),
+		 url('../../fonts/hkgrotesk-bolditalic-webfont.woff') format('woff'),
+		 url('../../fonts/hkgrotesk-bolditalic-webfont.ttf') format('truetype'),
+		 url('../../fonts/hkgrotesk-bolditalic-webfont.svg#hk_groteskbold_italic') format('svg');
 	font-weight: bold;
 	font-style: italic;
 }
 
 @font-face {
 	font-family: 'Muller Bold';
-	src: url('../fonts/3433E1_0_0.eot');
-	src: url('../fonts/3433E1_0_0.eot?#iefix') format('embedded-opentype'),
-		 url('../fonts/3433E1_0_0.woff2') format('woff2'),
-		 url('../fonts/3433E1_0_0.woff') format('woff'),
-		 url('../fonts/3433E1_0_0.ttf') format('truetype');
+	src: url('../../fonts/3433E1_0_0.eot');
+	src: url('../../fonts/3433E1_0_0.eot?#iefix') format('embedded-opentype'),
+		 url('../../fonts/3433E1_0_0.woff2') format('woff2'),
+		 url('../../fonts/3433E1_0_0.woff') format('woff'),
+		 url('../../fonts/3433E1_0_0.ttf') format('truetype');
 }
 
 /* ------------------------------------------------------------ *
@@ -177,71 +177,20 @@ h6 { font-family: var(--font-secondary); font-weight: normal; color: var(--color
 
 .tooltip { overflow: hidden; font-size: 100%; line-height: 1.35; white-space: nowrap; }
 
-
-/* popups */
-.popup { display: none; }
-#cboxLoadedContent .popup { display: block; }
-
-.popup { max-width: 665px; padding: 40px; }
-.popup-checkout-success { text-align: center; }
-.popup-checkout-success .btns { padding: 20px 0; }
-
-.overlay-global { position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: #000; opacity: 0; visibility: hidden; transition: all 0.3s; pointer-events: none; }
-body.is-active .overlay-global { opacity: 0.7; visibility: visible; pointer-events: auto; }
-body.is-active .header,
-body.is-active .accents,
-body.is-active .main { z-index: auto; }
-body.has-cart-active .nav-cart { z-index: 101; }
-body.has-menu-active .header-bottom .wrapper { z-index: 101; }
-
 /* z-index hierarchy */
 .header,
 .footer,
 .main,
 .accents { position: relative; }
 
-.overlay-global { z-index: 100; }
 .header { z-index: 40; }
 .footer { z-index: 30; }
 .main { z-index: 20; }
 .accents { z-index: 10; }
 
-.pad { overflow: hidden; background: #fff; border-radius: 5px; }
-.pad-primary { box-shadow: var(--shadow-default); }
-.pad-secondary { box-shadow: var(--shadow-blured); }
-.pad-basic { border: 1px solid var(--color-neutral-mid); border-radius: 0; background: #f8f8f8; }
-
-.toolbar:after { @apply --clearfix; }
-.toolbar-date { padding: 10px 0; }
-.toolbar-date .date { float: left; }
-.toolbar-date .date strong { display: block; padding-bottom: 2px; font-size: 36px; line-height: 1; color: #000; }
-.toolbar-date .date small { display: block; font-size: 10px; line-height: 1; color: #585858; }
-.toolbar-date .btns { float: right; }
-.toolbar-products { padding: 20px 0; }
-.toolbar-products-top { padding-top: 0; }
-.toolbar-products-bottom { padding-bottom: 0; }
-.toolbar-products:after { @apply --clearfix; }
-.toolbar-products .sort { float: left; }
-.toolbar-products .sort .field-select select { height: 30px; border-radius: 5px; line-height: 30px; text-transform: none; }
-.toolbar-products .paging { float: right; }
-.toolbar-bordered { border-top: 1px solid #d6d6d6; padding: 15px 0; }
-
-/* plugin: perfect scroll */
-.ps > .ps__scrollbar-y-rail { opacity: 1; width: 8px; background: #dfdfdf; }
-.ps.ps--active-y > .ps__scrollbar-y-rail { background: #dfdfdf; }
-.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y { right: 0; width: 8px; border-radius: 0; background: var(--color-secondary); }
-.ps > .ps__scrollbar-y-rail:hover > .ps__scrollbar-y, .ps > .ps__scrollbar-y-rail:active > .ps__scrollbar-y { width: 8px; background: var(--color-secondary); }
-.ps:hover > .ps__scrollbar-y-rail,
-.ps:hover > .ps__scrollbar-y-rail:hover { background: #dfdfdf; opacity: 1; }
-.ps.ps--in-scrolling.ps--y > .ps__scrollbar-y-rail > .ps__scrollbar-y,
-.ps:hover.ps--in-scrolling.ps--y > .ps__scrollbar-y-rail > .ps__scrollbar-y { width: 8px; }
-
-/* plugin: nouislider */
-.slider-range { height: 4px; border: 0; border-radius: 0; margin: 15px 55px 35px 10px; background: #dfdfdf; }
-.slider-range .noUi-connect { background: #000; }
-.slider-range .noUi-handle { top: 50%; left: 50%; width: 18px; height: 24px; border: 0; border-radius: 0; margin: -10px 0 0 -9px; background: url('../images/icon-ellipse.svg') 0 0 no-repeat; box-shadow: none; cursor: pointer; }
-.slider-range .noUi-handle:after { display: none; }
-.slider-range .noUi-handle:before { content: attr(aria-valuetext); top: 100%; left: 0; width: 60px; height: auto; padding: 5px 0; background-color: transparent; font-size: 14px; line-height: 1; color: #000; }
+/* popups */
+.popup { display: none; }
+#cboxLoadedContent .popup { display: block; }
 
 /* ------------------------------------------------------------ *
 	# helpers
