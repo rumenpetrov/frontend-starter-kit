@@ -47,18 +47,18 @@ gulp.task('build:html', function(callback) {
 });
 
 gulp.task('clean:html', function() {
-	return del(paths.pages.src + '/*.html');
+	return del(paths.templates.src + '/*.html');
 });
 
 gulp.task('pages', function() {
-	return gulp.src(paths.pages.src + '/pages/**/*.html')
+	return gulp.src(paths.templates.src + '/pages/**/*.html')
 	
 	.pipe(panini({
-		root: paths.pages.src + '/pages/',
-		layouts: paths.pages.src + '/layouts/',
-		partials: paths.pages.src + '/partials/'
+		root: paths.templates.src + '/pages/',
+		layouts: paths.templates.src + '/layouts/',
+		partials: paths.templates.src + '/partials/'
 	}))
-	.pipe(gulp.dest(paths.pages.dist));
+	.pipe(gulp.dest(paths.templates.dist));
 });
 
 gulp.task('pages:refresh', function() {
