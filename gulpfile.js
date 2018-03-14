@@ -8,7 +8,7 @@ var panini = require('panini');
 
 // styles
 var postcss = require('gulp-postcss');
-var cssnext = require('postcss-cssnext');
+var postcssPresetEnv = require('postcss-preset-env');
 var postcssImport = require('postcss-import');
 var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
@@ -71,7 +71,7 @@ gulp.task('pages:refresh', function() {
 gulp.task('build:css:dev', function(done) {
 	var plugins = [
 		postcssImport,
-		cssnext
+		postcssPresetEnv
 	];
 
 	return gulp.src(paths.styles.src + '/style.css')
@@ -87,7 +87,7 @@ gulp.task('build:css:dev', function(done) {
 gulp.task('build:css:prod', function(done) {
 	var plugins = [
 		postcssImport,
-		cssnext
+		postcssPresetEnv
 	];
 
 	return gulp.src(paths.styles.src + '/style.css')

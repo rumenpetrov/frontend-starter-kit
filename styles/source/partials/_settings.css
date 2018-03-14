@@ -1,49 +1,27 @@
 :root {
-	--path: ../images;
+	--wrapper-width:         1180px;
 
-	--clearfix: {
-		content: '';
-		display: block;
-		clear: both;
-	};
+	--font-primary:          sans-serif;
+	--font-secondary:        serif;
+	--font-size-base:        10px;
+	--font-size-primary:     1.6rem;
 
-	--wrapper-width: 1300px;
+	--success:               #6cff8f;
+	--error:                 #ff5757;
+	--info:                  #85bbe7;
+	--warning:               #fbd391;
 
-	--font-primary:          'HK Grotesk', sans-serif;
-	--font-secondary:        'Muller Bold', sans-serif;
-	--font-size-primary:     14px;
+	--color-primary:         #1f2c5c; /* dark blue */
+	--color-secondary:       #fcd391; /* yellow */
+	--color-bg:              #e0e4ee; /* pale blue */
+	--color-neutral-lt:      #f1f1f1;
+	--color-neutral-dk:      #ebebeb;
 
-	--success:                  #aac000;
-	--error:                    #dc4e41;
-	--info:                     #5d76d1;
-	--warning:                  #f8d614;
+	--color-titles:          var(--color-primary);
+	--color-text:            var(--color-primary);
+	--color-text-article:    var(--color-text);
+	--color-link:            var(--color-primary);
 
-	--color-primary:            #9fb33f; /* green */
-	--color-secondary:          #333333; /* black */
-	--color-tertiary:           #828ccc; /* light blue */
-	--color-neutral-lt:         #f0f3f2;
-	--color-neutral-mid:        #e6e6e6;
-	--color-neutral-dk:         #acacac;
-
-	--color-titles:             var(--color-secondary);
-	--color-text:               #6c6c6c;
-	--color-link:               var(--color-primary);
-
-	--color-category-1:            #cc5b54; /* red */
-	--color-category-2:            #5d76d1; /* blue */
-	--color-category-3:            #6ebe47; /* green */
-	--color-category-4:            #f8d614; /* yellow */
-	--color-category-5:            #996ab2; /* purple */
-	--color-category-6:            #a47f62; /* brown */
-	--color-category-7:            #e4843e; /* orange */
-
-	--shadow-default: 0 1px 1px rgba(0, 0, 0, .3);
-	--shadow-blured: 0 1px 4px rgba(0, 0, 0, .3);
-	--shadow-fields: inset 3px 0 2px rgba(32, 32, 32, .07);
-
-	@custom-media --breakpoint-desktop-lg (max-width: 1300px);
-	@custom-media --breakpoint-desktop (max-width: 1200px);
-	@custom-media --breakpoint-tablet (max-width: 991px);
-	@custom-media --breakpoint-tablet-sm (max-width: 767px);
-	@custom-media --breakpoint-mobile (max-width: 479px);
+	--border-radius:         8px;
+	--gradient-default:      linear-gradient(to right, var(--color-boy), var(--color-girl)); 
 }

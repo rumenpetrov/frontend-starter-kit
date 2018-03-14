@@ -1,127 +1,263 @@
 ;(function($, window, document, undefined) {
+	"use strict";
+
 	var $win = $(window);
 	var $doc = $(document);
+	var globalKeys = {
+		'esc': 27
+	};
 	
+	window.Helper = window.Helper || {};
+	window.Component = window.Component || {};
+
+
 	/* ------------------------------------------------------------ *\
-		#FUNCTION DEFINITIONS
+		# Helpers
 	\* ------------------------------------------------------------ */
 
 	/**
-	 * Connects elements.
-	 *
-	 * Required:
-	 * - 'data-active-target' - Get CSS style selector. Set the attribute to a target element.
-	 *
-	 * Optional:
-	 * - 'data-active-scope' - Get CSS style selector. Use it to work with multiple targets. 
+	 * Returns a function, that, as long as it continues to be invoked, will not be triggered. The function will be called after it stops being called for N milliseconds. If `immediate` is passed, trigger the function on the leading edge, instead of the trailing.
 	 * 
-	 * @private
-	 * @return {void}
+	 * @param  {function}
+	 * @param  {int}
+	 * @param  {bool}
+	 * @return {function}
 	 */
-	var makeActiveInit = function() {
-		var $triggers = $('[data-active-target]');
-
-		// stop execution when elements does missing 
-		if (!$triggers.length) {
-			// console.error('makeActiveInit: Invalid parameters');
-			return;	
-		}
-
-		$triggers.on('click', function() {
-			var $currentElement = $(this);
-			var $currentScope;
-			var $currentTarget;
-			
-			if (!$currentElement.data('active-scope')) {
-				$currentTarget = $($currentElement.data('active-target'));
-				
-				// handle missing target
-				if (!$currentTarget.length) {
-					console.error('makeActiveInit: Missing target element!');
-					return;
-				}
-
-				// handle multiple targets
-				if ($currentTarget.length > 1) {
-					console.error('makeActiveInit: Detect multiple target elements. Require "data-active-scope"!');
-					return;
-				}
-			} else {
-				$currentScope = $currentElement.closest($currentElement.data('active-scope'));
-				$currentTarget = $currentScope.find($currentElement.data('active-target'));
-
-				// handle missing scope
-				if (!$currentScope.length) {
-					console.error('makeActiveInit: Missing scope element! Remove "data-active-scope" attribute or add scope element!');
-					return;
-				}
-			}
-			
-			// switch classes
-			if ($currentElement.hasClass('is-active')) {
-				$currentElement.removeClass('is-active');	
-				$currentTarget.removeClass('is-active');
-
-				if ($currentElement.data('active-scope')) {
-					if ($currentScope.length) {
-						$currentScope.removeClass('is-active');
-					}
-				}
-			} else {
-				$currentElement.addClass('is-active');	
-				$currentTarget.addClass('is-active');
-
-				if ($currentElement.data('active-scope')) {
-					if ($currentScope.length) {
-						$currentScope.addClass('is-active');
-					}
-				}
-			}
-		});
+	Helper.debounce = function(func, wait, immediate) {
+		var timeout;
+		return function() {
+			var context = this, args = arguments;
+			var later = function() {
+				timeout = null;
+				if (!immediate) func.apply(context, args);
+			};
+			var callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) func.apply(context, args);
+		};
 	};
 
 	/**
-	 * Universal hide function. Check if event's target matches given selectors or esc key is pressed.
+	 * Check if event's target matches given selectors.
 	 *
 	 * Example:
-	 * basicHide(event, '.accordionItemHead, .accordionItemBody, .accordionItem');
+	 * elementMatch(event, '.accordion-item-head, .accordion-item-body, .accordion-item');
 	 * 
-	 * @private
 	 * @param  {event}
 	 * @param  {string|Object}
-	 * @return {void}
+	 * @return {bool}
 	 */
-	var basicHide = function(evt, selector) {
+	Helper.elementMatch = function(e, selector) {
 		// stop execution when parameters are not valid
-		if (typeof evt === undefined || !$(selector).length) {
-			// console.error('basicHide: Invalid parameters!');
+		if (typeof e === 'undefined' || !$(selector).length) {
+			console.error('Helper.elementMatch: Invalid parameters!');
 			return;
 		}
 
-		var $target = $(evt.target);
+		var $target = $(e.target);
 
-		if ((!$target.closest(selector).length) || (evt.keyCode == 27 /* esc key*/)) {
-			$(selector).removeClass('is-active');
+		if ($target.closest(selector).length) {
+			return true;
+		} else {
+			return false;
 		}
 	};
 
+	/**
+	 * Get url params.
+	 * 
+	 * @param  {string}
+	 * @param  {string}
+	 * @return {string}
+	 */
+	Helper.getParameterByName = function(name, url) {
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+		var results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	};
+
+	Helper.getJsonFromParameters = function(string) {
+		var result = {};
+		string.split("&").forEach(function(part) {
+			var item = part.split("=");
+			result[item[0]] = decodeURIComponent(item[1]);
+		});
+		return result;
+	};
+
+	/**
+	 * Ajax related helper methods.
+	 * 
+	 * @type {object}
+	 */
+	Helper.ajax = {
+		sendForm: function(form, callback) {
+			var self = this;
+			var $form = $(form);
+			var action = $form.attr('action');
+			var method = $form.attr('method');
+			var params = $form.serialize();
+
+			if (typeof action === 'undefined' || typeof method === 'undefined') {
+				console.error('Helper.ajax.send: Invalid "action" or "method" attributes on form!');
+				return;
+			}
+
+			if (typeof callback !== 'function') {
+				console.error('Helper.ajax.send: Invalid callback function!');
+				return;
+			}
+
+			$.ajax({
+				url: action,
+				type: method,
+				dataType: 'json',
+				data: params,
+				success: function(response) {
+					callback(response);
+				},
+				error: function(jqXHR, exception) {
+					self.errors(jqXHR, exception);
+				}
+			});
+		},
+		sendParams: function(url, params, callback) {
+			var self = this;
+
+			$.ajax({
+				url: url,
+				type: 'POST',
+				dataType: 'json',
+				data: params,
+				success: function(response) {
+					callback(response);
+				},
+				error: function(jqXHR, exception) {
+					self.errors(jqXHR, exception);
+				}
+			});
+		},
+		validateForm: function(form) {
+			var self = this;
+			var $form = $(form);
+
+			// remove error classes
+			function errorsClean() {
+				$form.find('.field.error').removeClass('error');
+				$form.find('.choose.error').removeClass('error');
+				$form.find('.form-msg.error').remove();
+			}
+
+			// add error classes for different form element types
+			function errorsShow(response) {
+				for (var key in response.errors) {
+					var $element = $(form[key]);
+					var type = $element.attr('type');
+					var $holder;
+					
+					if (type === 'checkbox' || type === 'radio') {
+						$holder = $element.closest('.choose');
+					} else {
+						$holder = $element.closest('.field');
+
+						if (!$holder.find('.form-msg.error').length) {
+							$('<p class="form-msg error">' + response.errors[key] + '</p>').insertAfter($holder);
+						}
+					}
+
+					if (!$holder.hasClass('error')) {
+						$holder.addClass('error');
+					}
+				}
+			}
+
+			// handle ajax response
+			function render(response) {
+				if(response.success) {
+					// show notification
+					if ('msg' in response) {
+						toastr.success(response.msg);
+					}
+
+					if ('reload' in response) {
+						window.location = window.location;
+					} else if ('redirectTo' in response) {
+						window.location = response.redirectTo;
+					}
+
+					errorsClean();
+				} else {
+					// show notification
+					if ('msg' in response) {
+						toastr.error(response.msg);
+					}
+
+					errorsClean();
+					
+					errorsShow(response);
+				}
+			}
+
+			// send form for validation
+			$.ajax({
+				url: $form.attr('action'),
+				method: $form.attr('method'),
+				data: $form.serialize(),
+				dataType: 'json',
+				success: function(response) {
+					render(response);
+				},
+				error: function(jqXHR, exception) {
+					self.errors(jqXHR, exception);
+				}
+			});
+		},
+		errors: function(jqXHR, exception) {
+			if (jqXHR.status === 0) {
+				console.error('Not connect.\n Verify Network.');
+			} else if (jqXHR.status == 404) {
+				console.error('Requested page not found. [404]');
+			} else if (jqXHR.status == 500) {
+				console.error('Internal Server Error [500].');
+			} else if (exception === 'parsererror') {
+				console.error('Requested JSON parse failed.');
+			} else if (exception === 'timeout') {
+				console.error('Time out error.');
+			} else if (exception === 'abort') {
+				console.error('Ajax request aborted.');
+			} else {
+				console.error('Uncaught Error.\n' + jqXHR.responseText);
+			}
+		}
+	};
+
+
 	/* ------------------------------------------------------------ *\
-		#EVENT BINDS
+		# Components
 	\* ------------------------------------------------------------ */
 
-	$doc.on('click keyup touchstart', function(event) {
-		
+
+	/* ------------------------------------------------------------ *\
+		# Events
+	\* ------------------------------------------------------------ */
+
+	$doc.on('keyup', function(e) {
+		if (e.keyCode == globalKeys.esc) {
+			$doc.trigger('key:esc');
+		}
 	});
 
 	$doc.ready(function() {
-		makeActiveInit();
-
 		/**
 		 * Inline external svg sprite to all pages
 		 *
 		 * plugin: svg4everybody
 		 * https://github.com/jonathantneal/svg4everybody
-		 * 
 		 */
 		svg4everybody();
 
@@ -130,7 +266,6 @@
 		 *
 		 * plugin: toastr
 		 * https://github.com/CodeSeven/toastr
-		 * 
 		 */
 		toastr.options = {
 			"closeButton": true,
@@ -149,9 +284,5 @@
 			"showMethod": "fadeIn",
 			"hideMethod": "fadeOut"
 		};
-	});
-
-	$win.on('resize', function() {
-		
 	});
 })(jQuery, window, document);
