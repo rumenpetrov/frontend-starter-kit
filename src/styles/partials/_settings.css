@@ -23,5 +23,15 @@
 	--color-link:            var(--color-primary);
 
 	--border-radius:         8px;
-	--gradient-default:      linear-gradient(to right, var(--color-boy), var(--color-girl)); 
+	--gradient-default:      linear-gradient(to right, var(--color-boy), var(--color-girl));
+}
+
+body { background-color: var(--color-bg); display: flex; flex: 1; }
+
+::placeholder {
+  color: gray;
+}
+
+a {
+  color: #d3;
 }
