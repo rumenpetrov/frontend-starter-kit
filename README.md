@@ -19,6 +19,6 @@ Open command window and navigate to project's folder root(where 'gulpfile.bebel.
 - compiled js - 'src/scripts'
 
 ### Compiled files locations:
-- static html - 'dist/markup'
+- static html - 'dist/'
 - compiled css - 'dist/styles'
 - compiled js - 'dist/scripts'
