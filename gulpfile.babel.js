@@ -178,6 +178,8 @@ const taskBuild = gulp.parallel(
 function taskWatch() {
   logStartTask('watch');
 
+  // TODO:
+  // - Find way to implement "panini.refresh" function to fix markup watcher
   gulp.watch(`${MARKUP_SRC}/**/*.html`, gulp.series(taskMarkupClean, taskMarkup));
   gulp.watch(`${STYLES_SRC}/**/*.css`, gulp.series(taskStylesClean, taskStyles));
   gulp.watch(`${SCRIPTS_SRC}/**/*.js`, gulp.series(taskScriptsClean, taskScripts, taskScriptsLint, taskScriptsVendor));
