@@ -156,7 +156,7 @@ function taskScriptsClean() {
 }
 
 function taskScriptsLint() {
-  return gulp.src(`${SCRIPTS_SRC}/app.js`)
+  return gulp.src(`${SCRIPTS_SRC}../**/*.js`)
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -178,6 +178,7 @@ const taskBuild = gulp.parallel(
 function taskWatch() {
   logStartTask('watch');
 
+  gulp.watch(`${ASSETS_SRC}/**/*`, gulp.series(taskAssetsClean, taskAssetsCopy));
   gulp.watch(`${MARKUP_SRC}/**/*.html`, gulp.series(taskMarkupClean, taskMarkup));
   gulp.watch(`${STYLES_SRC}/**/*.css`, gulp.series(taskStylesClean, taskStyles));
   gulp.watch(`${SCRIPTS_SRC}/**/*.js`, gulp.series(taskScriptsClean, taskScripts, taskScriptsLint, taskScriptsVendor));
