@@ -26,7 +26,9 @@
   "scripts": {
     "start": "gulp",
     "assets": "gulp assets",
-    "build": "gulp build"
+    "prebuild": "npm i",
+    "build": "gulp build",
+    "serve": "npx http-server dist"
   },
   "dependencies": {},
   "devDependencies": {
