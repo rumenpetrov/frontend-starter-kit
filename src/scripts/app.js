@@ -1,3 +1,7 @@
+// Uncomment if you need jQuery
+// const { $ } = window;
+// console.log($.fn.jquery);
+
 const ready = () => {
   console.log('DOM fully loaded and parsed');
 
