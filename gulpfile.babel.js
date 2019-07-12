@@ -91,6 +91,11 @@ function taskMarkupClean() {
   return del(`${MARKUP_DIST}/*.html`, { force: true });
 }
 
+function taskMarkupReset(done) {
+  panini.refresh();
+  done();
+}
+
 /* ------------------------------------------------------------ *\
   # Task: Handle styles
 \* ------------------------------------------------------------ */
@@ -178,7 +183,7 @@ const taskBuild = gulp.parallel(
 function taskWatch() {
   logStartTask('watch');
 
-  gulp.watch(`${ASSETS_SRC}/**/*`, gulp.series(taskAssetsClean, taskAssetsCopy));
+  gulp.watch(`${ASSETS_SRC}/**/*`, gulp.series(taskAssetsClean, taskMarkupReset, taskAssetsCopy));
   gulp.watch(`${MARKUP_SRC}/**/*.html`, gulp.series(taskMarkupClean, taskMarkup));
   gulp.watch(`${STYLES_SRC}/**/*.css`, gulp.series(taskStylesClean, taskStyles));
   gulp.watch(`${SCRIPTS_SRC}/**/*.js`, gulp.series(taskScriptsClean, taskScripts, taskScriptsLint, taskScriptsVendor));
