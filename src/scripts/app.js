@@ -1,5 +1,9 @@
+import Sample from './models/sample_model.js';
+
 const ready = () => {
   console.log('DOM fully loaded and parsed');
+
+  Sample.writeToConsole();
 
   /**
    * Inline external svg sprite to all pages

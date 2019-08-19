@@ -12,5 +12,9 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  rules: {},
+  rules: {
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "object-shorthand": "off"
+  },
 };

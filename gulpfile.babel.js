@@ -23,8 +23,8 @@ import del from 'del';
 import babel from 'gulp-babel';
 import plumber from 'gulp-plumber';
 import concat from 'gulp-concat';
-
 import pkg from './package.json';
+import rollup from 'gulp-better-rollup';
 
 /* ------------------------------------------------------------ *\
   # Configuration
@@ -37,6 +37,8 @@ const STYLES_SRC = 'src/styles';
 const STYLES_DIST = 'dist/styles';
 const SCRIPTS_SRC = 'src/scripts';
 const SCRIPTS_DIST = 'dist/scripts';
+const SCRIPTS_MODELS_SRC = 'src/scripts/models';
+const SCRIPTS_MODELS_DIST = 'dist/scripts/models';
 
 const babelConfig = pkg.babel;
 
@@ -142,6 +144,9 @@ function taskScripts() {
     .pipe(plumber())
     .pipe(babel(babelConfig))
     .pipe(uglify({ compress: { hoist_funs: false, hoist_vars: false } }))
+    .pipe(rollup({
+      format: 'cjs'
+    }))
     .pipe(gulp.dest(SCRIPTS_DIST));
 }
 
@@ -157,7 +162,7 @@ function taskScriptsVendor() {
 function taskScriptsClean() {
   logSubtask('scripts clean');
 
-  return del(`${SCRIPTS_DIST}/**/*`, { force: true });
+  return del(`${SCRIPTS_DIST}/**/*.js`, { force: true });
 }
 
 function taskScriptsLint() {
@@ -166,7 +171,31 @@ function taskScriptsLint() {
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 }
+/* ------------------------------------------------------------ *\
+  # Task: Copy everything from scripts/models folder
+\* ------------------------------------------------------------ */
+function taskScriptsModelsCopy() {
+  logSubtask('scripts/models copy');
 
+  return gulp.src(`${SCRIPTS_MODELS_SRC}/**/*.js`)
+    .pipe(plumber())
+    .pipe(babel(babelConfig))
+    .pipe(uglify({ compress: { hoist_funs: false, hoist_vars: false } }))
+    .pipe(gulp.dest(SCRIPTS_MODELS_DIST));
+}
+
+function taskScriptsModelsClean() {
+  logSubtask('scripts/models clean');
+
+  return del(`${SCRIPTS_MODELS_DIST}/**/*.js`, { force: true });
+}
+
+function taskScriptsModelsLint() {
+  return gulp.src(`${SCRIPTS_MODELS_SRC}/**/*.js`)
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+}
 /* ------------------------------------------------------------ *\
   # Task: Compile the project
 \* ------------------------------------------------------------ */
@@ -174,7 +203,7 @@ const taskBuild = gulp.parallel(
   gulp.series(taskAssetsClean, taskAssetsCopy),
   gulp.series(taskMarkupClean, taskMarkup),
   gulp.series(taskStylesClean, taskStyles),
-  gulp.series(taskScriptsClean, taskScripts, taskScriptsLint, taskScriptsVendor),
+  gulp.series(taskScriptsClean, taskScripts, taskScriptsLint, taskScriptsVendor, taskScriptsModelsClean, taskScriptsModelsCopy, taskScriptsModelsLint),
 );
 
 /* ------------------------------------------------------------ *\
@@ -186,7 +215,7 @@ function taskWatch() {
   gulp.watch(`${ASSETS_SRC}/**/*`, gulp.series(taskAssetsClean, taskMarkupReset, taskAssetsCopy));
   gulp.watch(`${MARKUP_SRC}/**/*.html`, gulp.series(taskMarkupClean, taskMarkup));
   gulp.watch(`${STYLES_SRC}/**/*.css`, gulp.series(taskStylesClean, taskStyles));
-  gulp.watch(`${SCRIPTS_SRC}/**/*.js`, gulp.series(taskScriptsClean, taskScripts, taskScriptsLint, taskScriptsVendor));
+  gulp.watch(`${SCRIPTS_SRC}/**/*.js`, gulp.series(taskScriptsClean, taskScripts, taskScriptsLint, taskScriptsVendor, taskScriptsModelsClean, taskScriptsModelsCopy, taskScriptsModelsLint));
 }
 
 export { taskBuild as build, taskAssets as assets };
