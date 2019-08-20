@@ -3,7 +3,8 @@ import Sample from './models/sample_model.js';
 const ready = () => {
   console.log('DOM fully loaded and parsed');
 
-  Sample.writeToConsole();
+  let sample = new Sample('works');
+  sample.writeToConsole();
 
   /**
    * Inline external svg sprite to all pages

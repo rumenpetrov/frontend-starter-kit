@@ -1,7 +1,9 @@
-export const Sample = {
-  writeToConsole: function () {
-    console.log('works');
-  },
-};
+export default class Sample {
+  constructor(stringToWrite) {
+    this.text = stringToWrite;
+  }
 
-export default Sample;
+  writeToConsole() {
+    console.log(this.text);
+  }
+}
