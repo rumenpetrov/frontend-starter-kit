@@ -1,7 +1,6 @@
 {
   "name": "frontend-starter-kit",
   "description": "Modern frontend only architecture with gulp, zurb panini, postcss and babel.",
-  "version": "3.0.0",
   "author": "Rumen Petrov",
   "license": "MIT",
   "main": "gulpfile.babel.js",
@@ -13,14 +12,6 @@
   "babel": {
     "presets": [
       "@babel/preset-env"
-    ],
-    "plugins": [
-      [
-        "@babel/plugin-transform-modules-commonjs",
-        {
-          "allowTopLevelThis": true
-        }
-      ]
     ]
   },
   "scripts": {
@@ -28,22 +19,25 @@
     "assets": "gulp assets",
     "prebuild": "npm i",
     "build": "gulp build",
+    "upgrade-check": "npx npm-check-updates",
+    "upgrade": "npx npm-check-updates -u",
     "serve": "npx http-server dist"
   },
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "autoprefixer": "^9.6.1",
     "del": "^5.1.0",
     "doiuse": "^4.2.0",
     "eslint": "^6.2.2",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-standard": "^14.0.1",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-cli": "^2.2.0",

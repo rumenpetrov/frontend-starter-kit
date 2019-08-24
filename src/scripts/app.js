@@ -2,8 +2,8 @@
 // const { $ } = window;
 // console.log($.fn.jquery);
 
-const ready = () => {
-  console.log('DOM fully loaded and parsed');
+function ready () {
+  console.log('DOM fully loaded and parsed')
 
   /**
    * Inline external svg sprite to all pages
@@ -12,7 +12,7 @@ const ready = () => {
    * https://github.com/jonathantneal/svg4everybody
    */
   // eslint-disable-next-line no-undef
-  svg4everybody();
+  svg4everybody()
 
   /**
    * All notifications configuration
@@ -36,8 +36,8 @@ const ready = () => {
     showEasing: 'swing',
     hideEasing: 'linear',
     showMethod: 'fadeIn',
-    hideMethod: 'fadeOut',
-  };
-};
+    hideMethod: 'fadeOut'
+  }
+}
 
-window.addEventListener('DOMContentLoaded', ready);
+window.addEventListener('DOMContentLoaded', ready)
