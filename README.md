@@ -7,13 +7,32 @@ The following packages are required to run the project:
 
 ## Available Commands
 Open command window and navigate to project's folder root(where 'gulpfile.bebel.js' and 'package.json' files are located). There we can execute the following commands:
-| Command | Description |
-| ------- | ------ |
-| npm install | This command download all gulp dependencies and store them in 'node_modules' folder. We execute this command only once, when we start new the project.
-| npm start | This command create background process that watches all source files for changes compile them in '/dist' folder. We execute this command only once before we start making changes in source files.
-| npm run assets | Clean assets folder and update the content in it.
-| npm run build | Command that build static pages, compile, copy and minify resources.
-| npm run serve | Optional simple server that is serving /dist folder on localhost:8080 by default.
+<table width="100%">
+  <tr>
+    <th>Command</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>npm install</td>
+    <td>This command download all gulp dependencies and store them in 'node_modules' folder. We execute this command only once, when we start new the project.</td>
+  </tr>
+  <tr>
+    <td>npm start</td>
+    <td>This command create background process that watches all source files for changes compile them in '/dist' folder. We execute this command only once before we start making changes in source files.</td>
+  </tr>
+  <tr>
+    <td>npm run assets</td>
+    <td>Clean assets folder and update the content in it.</td>
+  </tr>
+  <tr>
+    <td>npm run build</td>
+    <td>Command that build static pages, compile, copy and minify resources.</td>
+  </tr>
+  <tr>
+    <td>npm run serve</td>
+    <td>Optional simple server that is serving /dist folder on localhost:8080 by default.</td>
+  </tr>
+</table>
 
 ## What should I do first
 - Clone the project.
