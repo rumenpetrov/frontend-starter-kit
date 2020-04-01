@@ -41,7 +41,7 @@ $ git clone <REPO_URL>
 ```
 - Delete .git folder.
 ```sh
-$ rm -rf node_modules
+$ rm -rf .git/
 ```
 - Build static pages for the first time(creates 'dist' folder).
 ```sh
