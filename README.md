@@ -1,5 +1,5 @@
 # frontend-starter-kit
-Modern frontend only architecture with gulp, zurb panini, postcss and babel.
+Minimal frontend only boilerplate with gulp, zurb panini, postcss and babel.
 
 The following packages are required to run the project:
 - node js
